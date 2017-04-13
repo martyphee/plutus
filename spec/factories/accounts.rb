@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :account, class: 'Plutus::Account' do
-    type 'Finance::Asset'
+    type 'Plutus::Asset'
     sequence(:name) do |n|
       "Name #{n} #{Plutus::Account.maximum(:id).nil? ? 1 : Plutus::Account.maximum(:id).next}"
     end

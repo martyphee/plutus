@@ -30,7 +30,6 @@ module Plutus
   #
   # @author Michael Bulat
   class Account < ActiveRecord::Base
-    self.inheritance_column = :_type_disabled # disable STI
 
     class_attribute :normal_credit_balance
 
