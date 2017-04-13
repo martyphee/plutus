@@ -15,3 +15,5 @@ pkg/
 Gemfile.lock
 *.gem
 coverage
+
+spec/rails

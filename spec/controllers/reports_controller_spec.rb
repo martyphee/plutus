@@ -4,20 +4,21 @@ module Plutus
   describe ReportsController do
     routes { Plutus::Engine.routes }
 
-    def mock_entry(stubs={})
-      @mock_entry ||= FactoryGirl.create(:entry_with_credit_and_debit)
+    let(:mock_entry) { FactoryGirl.create(:entry_with_credit_and_debit) }
+
+    before do
+      allow(Entry).to receive(:order).and_return([mock_entry])
+      get :balance_sheet
     end
 
     describe "GET balance_sheet" do
-      it "renders when one entry exists" do
-        Entry.stub_chain(:order).and_return([mock_entry])
-        get :balance_sheet
-        response.should be_success
+      context "renders when one entry exists"  do
+        it { response.should be_success }
       end
-      it "renders when no entries exist" do
-        Entry.stub_chain(:order).and_return([])
-        get :balance_sheet
-        response.should be_success
+
+      context "renders when no entries exist" do
+        let(:mock_entry) { nil }
+        it { response.should be_success }
       end
     end
   end

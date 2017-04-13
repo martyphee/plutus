@@ -19,18 +19,14 @@ Gem::Specification.new do |s|
     "LICENSE",
     "README.markdown"
   ]
-  s.add_dependency('rails',           '~> 5.0')
-  s.add_dependency('jquery-rails',    '~> 4.1', '>= 4.1.1')
-  s.add_dependency('jquery-ui-rails', '~> 5.0', '>= 5.0.5')
   s.add_development_dependency("yard")
   s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE", "Rakefile", "README.markdown"]
   s.homepage = %q{http://github.com/mbulat/plutus}
   s.require_paths = ["lib"]
   s.required_rubygems_version = ">= 1.3.6"
   s.summary = %q{A Plugin providing a Double Entry Accounting Engine for Rails}
-  s.test_files = Dir["{spec}/**/*"]
 
-  if s.respond_to? :specification_version then
+  if s.respond_to? :specification_version
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then

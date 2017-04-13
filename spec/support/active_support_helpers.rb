@@ -4,6 +4,8 @@ module ActiveSupportHelpers
   # * remove from $LOADED_FEATURES so that ruby 'require' reloads file again
   # * remove the constant from active support dependencies
   def self.clear_model(model_name)
+    # binding.pry
+    puts "AutoLoaded: #{ActiveSupport::Dependencies.autoloaded?('Plutus::' + model_name)}"
     ActiveSupport::Dependencies.remove_constant('Plutus::' + model_name)
 
     models_dir = File.dirname(__FILE__) + '/../../app/models/plutus/'
